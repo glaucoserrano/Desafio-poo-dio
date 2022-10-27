@@ -1,32 +1,17 @@
 package br.com.dio.desafio.dominio;
 
-public class Curso {
+public class Curso extends Conteudo {
   // #region "Atributos"
-  private String titulo;
-
-  private String descricao;
 
   private int cargaHoraria;
 
   // #endregion
+  // #region "Constructor"
+  public Curso() {
+  }
+  // #endregion
 
   // #region "Getter and Setter"
-  public String getTitulo() {
-    return titulo;
-  }
-
-  public void setTitulo(String titulo) {
-    this.titulo = titulo;
-  }
-
-  public String getDescricao() {
-    return descricao;
-  }
-
-  public void setDescricao(String descricao) {
-    this.descricao = descricao;
-  }
-
   public int getCargaHoraria() {
     return cargaHoraria;
   }
@@ -37,11 +22,17 @@ public class Curso {
   // #endregion
 
   // #region "Sobrescrita"
+
+  @Override
+  public double calcularXP() {
+    return XP_PADRAO * cargaHoraria;
+  }
+
   @Override
   public String toString() {
     return "Curso{" +
-        "título= '" + titulo + '\'' +
-        ", descrição= '" + descricao + '\'' +
+        "título= '" + getTitulo() + '\'' +
+        ", descrição= '" + getDescricao() + '\'' +
         ", cargaHoraria=" + cargaHoraria +
         "}";
   }
